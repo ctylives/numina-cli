@@ -4,3 +4,4 @@
 build
 dist
 token.txt
+__pycache__/

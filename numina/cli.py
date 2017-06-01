@@ -3,14 +3,17 @@ numina
 
 Usage:
   numina authenticate <token>
-  numina counts
-  numina movements
+  numina counts <feeds> [--starttime=<starttime> --endtime=<endtime> --bins=<bins>]
+  numina movements <feeds> [--starttime=<starttime>|--endtime=<endtime>]
   numina -h | --help
   numina --version
 
 Options:
   -h --help                         Show this screen.
   --version                         Show version.
+  --starttime=<starttime>           A RFC-3339 timestamp of query starttime
+  --endtime=<endtime>               A RFC-3339 timestamp of query endtime
+  --bins=<bins>                     A time duration literal representing groupings of time - available bins (uµsmhdw)
 Examples:
   numina hello
 
