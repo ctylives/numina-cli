@@ -6,6 +6,7 @@ import requests
 import datetime as dt
 import urllib
 from .base import Base
+from . import utils
 
 class Counts(Base):
 
@@ -13,6 +14,7 @@ class Counts(Base):
         authfile = open('token.txt', 'r')
         token = authfile.read()
         token = token.replace('"', '')
+        authfile.close()
         if not token:
             print("No token saved, please provide an authentication token for the cli via the authenticate command")
             return    
@@ -29,5 +31,6 @@ class Counts(Base):
                     )
 
         r = requests.get(self.request_url + '/b/counts?' + urllib.parse.urlencode(params), headers={ 'Authorization': ' JWT ' + token })
-        print(r.text)
-        authfile.close()
+        is_expired = utils.check_if_expired(r)
+        if not is_expired:
+            print(r.text)

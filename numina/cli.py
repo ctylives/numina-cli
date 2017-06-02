@@ -5,8 +5,8 @@ Usage:
   numina authenticate <token>
   numina counts <feeds> [--starttime=<starttime> --endtime=<endtime> --bins=<bins>]
   numina movements <feeds> [--starttime=<starttime>|--endtime=<endtime>]
+  numina devices <org_id>
   numina -h | --help
-  numina --version
 
 Options:
   -h --help                         Show this screen.
