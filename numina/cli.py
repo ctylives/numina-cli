@@ -11,15 +11,14 @@ Usage:
 Options:
   -h --help                         Show this screen.
   --version                         Show version.
-  --starttime=<starttime>           A RFC-3339 timestamp of query starttime
-  --endtime=<endtime>               A RFC-3339 timestamp of query endtime
-  --bins=<bins>                     A time duration literal representing groupings of time - available bins (uµsmhdw)
+  --starttime=<starttime>           A RFC-3339 timestamp of query starttime, defaults to 7 days before the current time
+  --endtime=<endtime>               A RFC-3339 timestamp of query endtime, defaults to the current utc time
+  --bins=<bins>                     A time duration literal representing groupings of time - available bins (uµsmhdw), defaults to 1 hour
 Examples:
-  numina hello
+  numina authenticate 2n3kkd3_234kn.adf&20$9u3.casdf
+  numina counts dkkd20994739 --starttime=2017-06-01T15:00:00Z
+  numina devices
 
-Help:
-  For help using this tool, please open an issue on the Github repository:
-  https://github.com/rdegges/numina-cli
 """
 
 
