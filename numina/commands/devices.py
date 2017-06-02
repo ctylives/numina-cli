@@ -11,15 +11,14 @@ from . import utils
 class Counts(Base):
 
     def run(self):
-        authfile = open('token.txt', 'r')
-        token = authfile.read()
-        token = token.replace('"', '')
-        authfile.close()
+        token = utils.get_saved_token()
+        if token == False:
+            return
         if not token:
             print("No token saved, please provide an authentication token for the cli via the authenticate command")
             return    
-            
-        r = requests.get(self.request_url + '/b/devices', headers={ 'Authorization': ' JWT ' + token })
+        
+        r = requests.get(self.request_url + '/b/devices', headers={ 'Authorization': 'JWT ' + token })
         print(r.text)
         is_expired = utils.check_if_expired(r)
         if not is_expired:

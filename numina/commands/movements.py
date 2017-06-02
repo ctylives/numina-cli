@@ -11,10 +11,9 @@ from . import utils
 class Movements(Base):
 
     def run(self):
-        authfile = open('token.txt', 'r')
-        token = authfile.read()
-        authfile.close()
-        token = token.replace('"', '')
+        token = utils.get_saved_token()
+        if token == False:
+            return
         if not token:
             print("No token saved, please provide an authentication token for the cli via the authenticate command")
             return    

@@ -13,6 +13,6 @@ class Authenticate(Base):
             print("please provide an authentication token")
             return    
         
-        print('Authenticating with token: ' + dumps(self.options["<token>"]))
+        print('Authentication token has been saved for future use: ' + dumps(self.options["<token>"]))
         authfile.write(dumps(self.options["<token>"]))
         authfile.close()
