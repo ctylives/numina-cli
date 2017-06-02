@@ -33,16 +33,16 @@ class RunTests(Command):
 
 
 setup(
-    name = 'numina',
+    name = 'numina-cli',
     version = __version__,
-    description = 'A numina command line program in Python.',
+    description = 'A numina command line tool to explore numina sensor data.',
     long_description = long_description,
     url = 'https://github.com/cty/numina-cli',
     author = 'Rafael Ancheta',
     author_email = 'hello@numina.co',
     license = 'Numina',
     classifiers = [
-        'Intended Audience :: Researchers',
+        'Intended Audience :: Science/Research',
         'Topic :: Utilities',
         'License :: Public Domain',
         'Natural Language :: English',

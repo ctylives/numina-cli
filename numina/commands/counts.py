@@ -1,10 +1,13 @@
 """The hello command."""
 
 
-from json import dumps
+from json import dumps, loads
 import requests
 import datetime as dt
-import urllib
+try:
+    from urllib.parse import urlencode
+except ImportError:
+     from urllib import urlencode
 from .base import Base
 from . import utils
 
@@ -25,7 +28,7 @@ class Counts(Base):
                         ('endtime', self.options.get("endtime", dt.datetime.utcnow().isoformat()))
                     )
 
-        r = requests.get(self.request_url + '/b/counts?' + urllib.parse.urlencode(params), headers={ 'Authorization': 'JWT ' + token })
+        r = requests.get(self.request_url + '/b/counts?' + urlencode(params), headers={ 'Authorization': 'JWT ' + token })
         is_expired = utils.check_if_expired(r)
         if not is_expired:
-            print(r.text)
+            print(dumps(loads(r.text), indent=4, sort_keys=True))
