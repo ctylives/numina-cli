@@ -1,4 +1,4 @@
-"""The hello command."""
+"""The movements command."""
 
 
 from json import dumps, loads
@@ -21,8 +21,8 @@ class Movements(Base):
         params =    (  
                         ('feed',self.options["<feeds>"]),
                         ('format',"json"),
-                        ('starttime', self.options.get("starttime", (dt.datetime.utcnow() - dt.timedelta(days=7)).isoformat() ) ),
-                        ('endtime', self.options.get("endtime", dt.datetime.utcnow().isoformat()))
+                        ('starttime', self.options["--starttime"] or (dt.datetime.utcnow() - dt.timedelta(days=1)).isoformat() + 'Z'),
+                        ('endtime', self.options["--endtime"] or dt.datetime.utcnow().isoformat() + 'Z'),
                     )
 
         r = requests.get(self.request_url + '/b/movements?' + urlencode(params) , headers={ 'Authorization': 'JWT ' + token })

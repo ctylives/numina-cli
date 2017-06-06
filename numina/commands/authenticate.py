@@ -1,4 +1,4 @@
-"""The hello command."""
+"""The authetication command."""
 
 
 from json import dumps
@@ -13,6 +13,6 @@ class Authenticate(Base):
             print("please provide an authentication token")
             return    
         
-        print('Authentication token has been saved for future use: ' + dumps(self.options["<token>"]))
+        print('\n Authentication token has been saved for future use: ' + dumps(self.options["<token>"]))
         authfile.write(dumps(self.options["<token>"]))
         authfile.close()

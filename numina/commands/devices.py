@@ -1,4 +1,4 @@
-"""The hello command."""
+"""The devices command."""
 
 
 from json import dumps, loads
@@ -15,7 +15,6 @@ class Counts(Base):
             return
         
         r = requests.get(self.request_url + '/b/devices', headers={ 'Authorization': 'JWT ' + token })
-        print(r.text)
         is_expired = utils.check_if_expired(r)
         if not is_expired:
             print(dumps(loads(r.text), indent=4, sort_keys=True))

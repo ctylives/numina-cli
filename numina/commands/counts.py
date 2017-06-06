@@ -23,11 +23,12 @@ class Counts(Base):
 
         params =    (  
                         ('feed',self.options["<feeds>"]),
-                        ('bins',self.options.get("bins", '1h')),
-                        ('starttime', self.options.get("starttime", (dt.datetime.utcnow() - dt.timedelta(days=7)).isoformat()) ),
-                        ('endtime', self.options.get("endtime", dt.datetime.utcnow().isoformat()))
+                        ('bins',self.options.get("bins") or '1h'),
+                        ('starttime', self.options["--starttime"] or (dt.datetime.utcnow() - dt.timedelta(days=7)).isoformat() + 'Z'),
+                        ('endtime', self.options["--endtime"] or dt.datetime.utcnow().isoformat() + 'Z'),
+                        ('class', self.options["--class"] or 'pedestrian')
                     )
-
+        print(urlencode(params))
         r = requests.get(self.request_url + '/b/counts?' + urlencode(params), headers={ 'Authorization': 'JWT ' + token })
         is_expired = utils.check_if_expired(r)
         if not is_expired:
