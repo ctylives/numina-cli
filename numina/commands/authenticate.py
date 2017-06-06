@@ -4,11 +4,12 @@
 from json import dumps
 import requests
 from .base import Base
+import os
 
 class Authenticate(Base):
 
     def run(self):
-        authfile = open('token.txt', 'w')
+        authfile = open(os.path.expanduser('~') + '/.numina-token.txt', 'w')
         if not '<token>' in self.options:
             print("please provide an authentication token")
             return    

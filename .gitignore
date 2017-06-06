@@ -3,5 +3,5 @@
 *.egg-info
 build
 dist
-token.txt
+.numina-token.txt
 __pycache__/
