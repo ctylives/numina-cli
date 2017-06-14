@@ -28,7 +28,6 @@ class Counts(Base):
                         ('endtime', self.options["--endtime"] or dt.datetime.utcnow().isoformat() + 'Z'),
                         ('class', self.options["--class"] or 'pedestrian')
                     )
-        print(urlencode(params))
         r = requests.get(self.request_url + '/b/counts?' + urlencode(params), headers={ 'Authorization': 'JWT ' + token })
         is_expired = utils.check_if_expired(r)
         if not is_expired:
