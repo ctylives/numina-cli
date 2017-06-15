@@ -17,9 +17,6 @@ class Counts(Base):
         token = utils.get_saved_token()
         if token == False:
             return
-        if not '<feeds>' in self.options:
-            print("Counts requires the feed option, please use feed_mongo_id from the devices endpoint to restrict your query")
-            return
 
         params =    (  
                         ('feed',self.options["<feeds>"]),
