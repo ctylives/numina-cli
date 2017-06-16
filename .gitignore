@@ -1,6 +1,7 @@
 .cache
 .coverage
 *.egg-info
+*.pyc 
 build
 dist
 .numina-token.txt
