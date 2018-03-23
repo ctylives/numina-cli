@@ -5,7 +5,7 @@ numina
 Usage:
   numina authenticate <token>
   numina counts <feeds> [--starttime=<starttime> --endtime=<endtime> --class=<class> --bins=<bins>]
-  numina movements <feeds> [--starttime=<starttime>|--endtime=<endtime>]
+  numina movements <feeds> [--starttime=<starttime> --endtime=<endtime>]
   numina devices
   numina -h | --help
 
@@ -39,7 +39,7 @@ def main():
 
     # Here we'll try to dynamically match the command the user is trying to run
     # with a pre-defined command class we've already created.
-    for (k, v) in options.items(): 
+    for (k, v) in options.items():
         if hasattr(numina.commands, k) and v:
             module = getattr(numina.commands, k)
             numina.commands = getmembers(module, isclass)

@@ -19,7 +19,7 @@ numina
 Usage:
   numina authenticate <token>
   numina counts <feeds> [--starttime=<starttime> --endtime=<endtime> --bins=<bins>]
-  numina movements <feeds> [--starttime=<starttime>|--endtime=<endtime>]
+  numina movements <feeds> [--starttime=<starttime> --endtime=<endtime>]
   numina devices
   numina -h | --help
 
@@ -37,4 +37,3 @@ Examples:
   numina counts dkkd20994739 --starttime=2017-06-01T15:00:00Z
 
   numina devices
-
